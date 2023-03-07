@@ -1,4 +1,3 @@
-'use client';
 import { Col, Modal, ModalProps, Row } from 'antd';
 import Image from 'next/image';
 
@@ -17,7 +16,6 @@ const BANNERS = [
 ];
 
 type Props =  ModalProps & { onClick: (banner: string) => void }
-
 
 export default function BannerModal({ open, onCancel, onClick }: Props) {
   return (
