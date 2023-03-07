@@ -23,7 +23,7 @@ import BannerModal from './BannerModal';
 
 const TAGS = ['Product', 'Marketing', 'Design', 'Engineering'];
 
-const validateNumber = (rule: RuleObject, value: number, callback: (message?: string) => void) => {
+const validateNumber = (_rule: RuleObject, value: number, callback: (message?: string) => void) => {
   if (value === undefined) callback('Please enter a number');
   if (value <= 0) {
     callback('Number must be greater than 0');
