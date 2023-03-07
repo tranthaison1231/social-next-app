@@ -1,3 +1,5 @@
+import { NextResponse } from 'next/server';
+
 export async function POST(request: Request) {
   const res = await fetch(`${process.env.API_URL}/interview/social`, {
     method: 'POST',
@@ -7,5 +9,5 @@ export async function POST(request: Request) {
     body: request.body,
   });
   const data = await res.json();
-  return Response.json(data);
+  return NextResponse.json(data);
 }
