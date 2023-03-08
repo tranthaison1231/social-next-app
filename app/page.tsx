@@ -4,7 +4,6 @@ import { useToggle } from '@/hooks/useToggle';
 import {
   Button,
   Checkbox,
-  Col,
   ConfigProvider,
   DatePicker,
   Form,
@@ -12,8 +11,7 @@ import {
   InputNumber,
   notification,
   Radio,
-  Row,
-  Tag,
+  Tag
 } from 'antd';
 import { RuleObject } from 'antd/es/form';
 import { Store } from 'antd/es/form/interface';
@@ -92,24 +90,29 @@ export default function Home() {
   return (
     <ConfigProvider theme={theme}>
       <BannerModal open={isOpen} onCancel={close} onClick={selectBanner} />
-      <Form onFinish={onFinish} form={form} onFinishFailed={checkFail} initialValues={{
-        title: 'Untitle Event'
-      }}>
-        <Row gutter={18}>
-          <Col span={11}>
+      <Form
+        onFinish={onFinish}
+        form={form}
+        onFinishFailed={checkFail}
+        initialValues={{
+          title: 'Untitle Event',
+        }}
+      >
+        <div className="grid grid-cols-[1fr_1.2fr] gap-5">
+          <div className="w-full">
             <Form.Item name="title" rules={[{ required: true }]}>
-              <Input className="bg-[#942F70] h-16 px-[12px] py-[4px] text-5xl font-bold text-white min" />
+              <input className="bg-[#942F70] h-16 px-[12px] py-[4px] text-5xl font-bold text-white w-full box-border" />
             </Form.Item>
-            <Row className="mt-7" justify="space-between" gutter={23}>
-              <Col span={12} className="flex gap-4">
+            <div className="grid mt-7 gap-6 grid-cols-2">
+              <div className="flex gap-4 w-full">
                 <Image src="/date.svg" alt="Date Picker" width={33} height={33} priority />
-                <Form.Item name="date" rules={[{ required: true }]} className="w-full">
+                <Form.Item name="date" rules={[{ required: true }]} className="w-full mb-0">
                   <DatePicker placeholder="Date" suffixIcon={false} size="large" className="w-full font-bold" />
                 </Form.Item>
-              </Col>
-              <Col span={12} className="flex gap-4">
+              </div>
+              <div className="flex gap-4 w-full">
                 <Image src="/time.svg" alt="Time Picker" width={33} height={33} priority />
-                <Form.Item name="time" rules={[{ required: true }]} className="w-full">
+                <Form.Item name="time" rules={[{ required: true }]} className="w-full mb-0">
                   <DatePicker.TimePicker
                     placeholder="Time"
                     suffixIcon={false}
@@ -117,35 +120,35 @@ export default function Home() {
                     className="font-bold w-full"
                   />
                 </Form.Item>
-              </Col>
-            </Row>
+              </div>
+            </div>
             <div className="flex gap-4 items-center mt-7">
               <Image src="/address.svg" alt="Time Picker" width={33} height={33} priority />
               <Form.Item name="venue" rules={[{ required: true }]} className="w-full mb-0">
                 <Input size="large" placeholder="Venue" className="font-bold" />
               </Form.Item>
             </div>
-            <Row className="flex mt-3" gutter={12}>
-              <Col span={12} className="flex gap-4">
+            <div className="grid mt-3 grid-cols-2 gap-9">
+              <div className="flex gap-4 w-full">
                 <Image src="/group-people.svg" alt="Time Picker" width={33} height={33} priority />
                 <Form.Item name="capacity" rules={[{ required: true, validator: validateNumber }]} className="w-full">
                   <InputNumber size="large" placeholder="Max capacity" min={0} className="font-bold w-full" />
                 </Form.Item>
-              </Col>
-              <Col span={12} className="flex gap-4">
+              </div>
+              <div className="flex gap-4 w-full">
                 <Image src="/money.svg" alt="Time Picker" width={33} height={33} priority />
                 <Form.Item name="price" className="w-full" rules={[{ validator: validateNumber }]}>
                   <InputNumber size="large" placeholder="Cost per person" min={0} className="font-bold w-full" />
                 </Form.Item>
-              </Col>
-            </Row>
-          </Col>
-          <Col span={13} onClick={open} className="cursor-pointer w-full h-[445px]">
+              </div>
+            </div>
+          </div>
+          <div onClick={open} className="cursor-pointer w-full h-[445px] relative">
             {banner ? (
               <Image fill src={banner} alt="Banner" priority />
             ) : (
               <div className="bg-[#f2f2f21a] w-full h-full flex items-center justify-center border border-dashed border-red-50 rounded-bl-[64px] rounded-tr-[64px] ">
-                <p className="flex text-[#14597A] text-xl">
+                <p className="flex text-[#14597A] text-xl items-center">
                   <Image src="/export-image.svg" alt="Add a banner" width={24} height={21.75} priority />
                   <span className="pl-4"> Add a Banner </span>
                 </p>
@@ -154,18 +157,18 @@ export default function Home() {
             <Form.Item>
               {isFail && !banner && <p className="ant-form-item-explain-error">Please select banner</p>}
             </Form.Item>
-          </Col>
-        </Row>
+          </div>
+        </div>
         <div className="grid grid-cols-2 mt-5">
           <div className="w-full">
             <label htmlFor="description" className="block text-sm text-[#333333]">
               Description
             </label>
             <Form.Item name="description" className="w-full" rules={[{ required: true }]}>
-              <Input.TextArea
+              <textarea
                 rows={6}
                 id="description"
-                className="w-full p-3 rounded-lg"
+                className="w-full p-3 rounded-lg box-border border-none"
                 placeholder="Description of your event..."
               />
             </Form.Item>
