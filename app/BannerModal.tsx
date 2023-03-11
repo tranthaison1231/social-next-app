@@ -1,5 +1,6 @@
-import { Col, Modal, ModalProps, Row } from 'antd';
+import { Col, Row } from 'antd';
 import Image from 'next/image';
+import Dialog, { type DialogProps } from 'rc-dialog';
 
 const BANNERS = [
   'https://supermomos-app-resources-us.s3.amazonaws.com/Images/SocialBanner/banner_1.jpg',
@@ -15,18 +16,25 @@ const BANNERS = [
   'https://supermomos-app-resources-us.s3.amazonaws.com/Images/SocialBanner/banner_11.jpg',
 ];
 
-type Props =  ModalProps & { onClick: (banner: string) => void }
+type Props = DialogProps & { onClick: (banner: string) => void };
 
-export default function BannerModal({ open, onCancel, onClick }: Props) {
+export default function BannerModal({ visible, onClose, onClick }: Props) {
   return (
-    <Modal title="Choose a banner" open={open} onCancel={onCancel} width="100%" >
+    <Dialog title="Choose a banner" className='max-w-[calc(100vw-32px)]' visible={visible} onClose={onClose} width="100%">
       <Row gutter={[2, 2]} className="w-full">
         {BANNERS.map((banner) => (
           <Col key={banner} span={4} className="cursor-pointer">
-            <Image src={banner} className="object-cover" width={190} height={150} alt="banner" onClick={() => onClick(banner)} />
+            <Image
+              src={banner}
+              className="object-cover"
+              width={190}
+              height={150}
+              alt="banner"
+              onClick={() => onClick(banner)}
+            />
           </Col>
         ))}
       </Row>
-    </Modal>
+    </Dialog>
   );
 }

@@ -1,8 +1,9 @@
 'use client';
+import { Spin } from '@/components/Spin';
+import { Tag } from '@/components/Tag';
 import { theme } from '@/configs/theme';
 import { useToggle } from '@/hooks/useToggle';
 import {
-  Button,
   Checkbox,
   ConfigProvider,
   DatePicker,
@@ -10,8 +11,7 @@ import {
   Input,
   InputNumber,
   notification,
-  Radio,
-  Tag
+  Radio
 } from 'antd';
 import { RuleObject } from 'antd/es/form';
 import { Store } from 'antd/es/form/interface';
@@ -89,7 +89,7 @@ export default function Home() {
 
   return (
     <ConfigProvider theme={theme}>
-      <BannerModal open={isOpen} onCancel={close} onClick={selectBanner} />
+      <BannerModal visible={isOpen} onClose={close} onClick={selectBanner} />
       <Form
         onFinish={onFinish}
         form={form}
@@ -188,18 +188,12 @@ export default function Home() {
               <p className="text-gray-700 mt-7 text-base font-bold"> Tag your social </p>
               <p className="text-gray-600">Pick tags for our curation engine to work its magin</p>
               <div className="mt-6 gap-2 flex">
+                {selectedTags.map((tag) => (
+                  <Tag onClose={closeTag(tag)} key={tag}>
+                    {tag}
+                  </Tag>
+                ))}
                 <Form.Item>
-                  {selectedTags.map((tag) => (
-                    <Tag
-                      closable
-                      color="magenta"
-                      onClose={closeTag(tag)}
-                      key={tag}
-                      className=" px-2 py-1 w-fit rounded-2xl"
-                    >
-                      {tag}
-                    </Tag>
-                  ))}
                   {isFail && !selectedTags.length && <p className="ant-form-item-explain-error">Please select tag</p>}
                 </Form.Item>
               </div>
@@ -215,15 +209,13 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <Button
-              loading={loading}
-              type="primary"
-              htmlType="submit"
-              className="w-full rounded-lg h-12 shadow-lg mt-8"
-              block
+            <button
+              type="submit"
+              className="mt-8 bg-[#FEF452] text-[#942F70] text-xl cursor-pointer w-full rounded-lg h-12 border-none shadow-lg active:scale-99"
             >
+              {loading && <Spin />}
               CREATE SOCIAL
-            </Button>
+            </button>
           </div>
         </div>
       </Form>
