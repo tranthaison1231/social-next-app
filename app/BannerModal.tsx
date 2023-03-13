@@ -1,4 +1,3 @@
-import { Col, Row } from 'antd';
 import Image from 'next/image';
 import Dialog, { type DialogProps } from 'rc-dialog';
 
@@ -20,21 +19,26 @@ type Props = DialogProps & { onClick: (banner: string) => void };
 
 export default function BannerModal({ visible, onClose, onClick }: Props) {
   return (
-    <Dialog title="Choose a banner" className='max-w-[calc(100vw-32px)]' visible={visible} onClose={onClose} width="100%">
-      <Row gutter={[2, 2]} className="w-full">
+    <Dialog
+      title="Choose a banner"
+      className="max-w-[calc(100vw-32px)]"
+      visible={visible}
+      onClose={onClose}
+      width="100%"
+    >
+      <div className="w-full grid grid-cols-6 gap-2">
         {BANNERS.map((banner) => (
-          <Col key={banner} span={4} className="cursor-pointer">
             <Image
+              key={banner}
               src={banner}
-              className="object-cover"
+              className="object-cover w-full cursor-pointer"
               width={190}
               height={150}
               alt="banner"
               onClick={() => onClick(banner)}
             />
-          </Col>
         ))}
-      </Row>
+      </div>
     </Dialog>
   );
 }

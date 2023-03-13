@@ -1,19 +1,8 @@
 @import 'rc-dialog/assets/index.css';
+@import 'react-datepicker/dist/react-datepicker.css';
+
 @tailwind utilities;
 
 .background-gradient {
   background: linear-gradient(138.11deg, #fef452 0%, #942f70 121.92%);
-}
-
-.ant-btn-primary,
-.ant-btn-primary:not(:disabled):hover {
-  color: #942f70;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.ant-picker .ant-picker-input > input,
-.ant-input-number .ant-input-number-input {
-  font-weight: 700;
 }

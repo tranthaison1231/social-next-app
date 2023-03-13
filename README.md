@@ -11,5 +11,4 @@ pnpm dev
 ## Stack
 
 - NextJS
-- Antd
 - Tailwind
