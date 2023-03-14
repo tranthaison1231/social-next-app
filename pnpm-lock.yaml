@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@hookform/resolvers': ^2.9.11
-  '@types/node': 18.15.1
+  '@types/node': 18.15.2
   '@types/react': 18.0.28
   '@types/react-datepicker': ^4.10.0
   '@types/react-dom': 18.0.11
@@ -16,6 +16,7 @@ specifiers:
   react-datepicker: ^4.10.0
   react-dom: 18.2.0
   react-hook-form: ^7.43.5
+  tailwind-merge: ^1.10.0
   tailwindcss: ^3.2.7
   typescript: 4.9.5
   zod: ^3.21.4
@@ -28,10 +29,11 @@ dependencies:
   react-datepicker: 4.10.0_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.43.5_react@18.2.0
+  tailwind-merge: 1.10.0
   zod: 3.21.4
 
 devDependencies:
-  '@types/node': 18.15.1
+  '@types/node': 18.15.2
   '@types/react': 18.0.28
   '@types/react-datepicker': 4.10.0_biqbaboplfbrettd7655fr4n2y
   '@types/react-dom': 18.0.11
@@ -306,8 +308,8 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
-  /@types/node/18.15.1:
-    resolution: {integrity: sha512-U2TWca8AeHSmbpi314QBESRk7oPjSZjDsR+c+H4ECC1l+kFgpZf8Ydhv3SJpPy51VyZHHqxlb6mTTqYNNRVAIw==}
+  /@types/node/18.15.2:
+    resolution: {integrity: sha512-sDPHm2wfx2QhrMDK0pOt2J4KLJMAcerqWNvnED0itPRJWvI+bK+uNHzcH1dFsBlf7G3u8tqXmRF3wkvL9yUwMw==}
     dev: true
 
   /@types/prop-types/15.7.5:
@@ -2408,6 +2410,10 @@ packages:
       '@pkgr/utils': 2.3.1
       tslib: 2.5.0
     dev: true
+
+  /tailwind-merge/1.10.0:
+    resolution: {integrity: sha512-WFnDXSS4kFTZwjKg5/oZSGzBRU/l+qcbv5NVTzLUQvJ9yovDAP05h0F2+ZFW0Lw9EcgRoc2AfURUdZvnEFrXKg==}
+    dev: false
 
   /tailwindcss/3.2.7_postcss@8.4.21:
     resolution: {integrity: sha512-B6DLqJzc21x7wntlH/GsZwEXTBttVSl1FtCzC8WP4oBc/NKef7kaax5jeihkkCEWc831/5NDJ9gRNDK6NEioQQ==}

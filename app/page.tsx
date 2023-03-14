@@ -1,6 +1,6 @@
 'use client';
+import Button from '@/components/Button';
 import FormItem from '@/components/FormItem';
-import { Spin } from '@/components/Spin';
 import { Tag } from '@/components/Tag';
 import { useToggle } from '@/hooks/useToggle';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -271,14 +271,9 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <button
-              onClick={checkFail}
-              type="submit"
-              className="mt-8 bg-[#FEF452] text-[#942F70] text-xl cursor-pointer w-full rounded-lg h-12 border-none shadow-lg active:scale-99"
-            >
-              {loading && <Spin />}
+            <Button loading={loading} type="submit" className="mt-8">
               CREATE SOCIAL
-            </button>
+            </Button>
           </div>
         </div>
       </form>
