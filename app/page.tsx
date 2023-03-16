@@ -207,7 +207,7 @@ export default function Home() {
               <Image fill src={banner} alt="Banner" priority />
             ) : (
               <div className="bg-[#f2f2f21a] w-full h-full flex items-center justify-center border border-dashed border-red-50 rounded-bl-[64px] rounded-tr-[64px] ">
-                <p className="flex items-center">
+                <div className="flex items-center">
                   <Image
                     src="/export-image.svg"
                     alt="Add a banner"
@@ -217,7 +217,7 @@ export default function Home() {
                     priority
                   />
                   <p className="pl-4 text-[#14597A] text-xl"> Add a Banner </p>
-                </p>
+                </div>
               </div>
             )}
             {isFail && !banner && <p className="text-red-500">Please select banner</p>}

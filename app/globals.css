@@ -1,5 +1,5 @@
-@import 'rc-dialog/assets/index.css';
-@import 'react-datepicker/dist/react-datepicker.css';
+@import "rc-dialog/assets/index.css";
+@import "react-datepicker/dist/react-datepicker.css";
 
 @tailwind utilities;
 
