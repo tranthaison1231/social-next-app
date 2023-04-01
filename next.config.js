@@ -5,7 +5,7 @@ const nextConfig = {
     typedRoutes: true,
   },
   images: {
-    domains: ['supermomos-app-resources-us.s3.amazonaws.com'],
+    domains: ["supermomos-app-resources-us.s3.amazonaws.com"],
   },
   reactStrictMode: true,
 };
